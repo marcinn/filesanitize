@@ -1,5 +1,6 @@
 ## filesanitize
 
+[![Build Status](https://travis-ci.org/marcinn/filesanitize.svg?branch=master)](http://travis-ci.org/marcinn/filesanitize)
 
 A small library for sanitizing filenames in Python 2.6/2.7 by removing accents,
 special chars and decoding unidode.
