@@ -32,13 +32,16 @@ def safe_filename(name, allowed_chars=None):
 
     >>> safe_filename(u'some str@ng3 File 12,0)a nAm#.txt')
     u'some_strng3_File_120)a_nAm.txt'
+
+    >>> safe_filename(u'registered\xae sign.txt')
+    u'registered_sign.txt'
     """
 
     allowed_chars = allowed_chars or DEFAULT_SAFE_FILENAME_CHARS
 
     try:
         name = force_unicode(name).encode('translit/one/ascii')
-    except (UnicodeDecodeError, TypeError, LookupError):
+    except (UnicodeDecodeError, UnicodeEncodeError, TypeError, LookupError):
         name = force_unicode(name).encode('ascii', 'ignore')
     name = name.replace(' ','_')
     name = ''.join(c for c in name if c in allowed_chars)
