@@ -25,3 +25,9 @@ Sanitize a filename only:
 u'StrngFl3name.txt'
 ```
 
+
+### License
+
+BSD (see LICENSE.md)
+
+
